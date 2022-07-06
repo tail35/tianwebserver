@@ -51,6 +51,8 @@ $ret = [
 ];
 
 echo json_encode($ret,JSON_UNESCAPED_UNICODE);
+$stmt = null;//也要关闭
 $pdo = null;//关闭连接
+
 
 ?>

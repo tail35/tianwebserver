@@ -67,6 +67,7 @@ if (0!=$num) {//has the record.
         die;
     }
 }
+$stmt = null;
 $pdo = null;//关闭连接
 
 ?>
