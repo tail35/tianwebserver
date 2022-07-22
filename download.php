@@ -1,7 +1,19 @@
 <?php
 
+function logError($content)
+{
+	$logfile = '/home/wwwroot/dabiaoqian/public_html/phplog/debuglog'.date('Ymd').'.txt';
+	if(!file_exists(dirname($logfile)))
+	{
+		@File_Util::mkdirr(dirname($logfile));
+	}
+	error_log(date("[Y-m-d H:i:s]")." -[".$_SERVER['REQUEST_URI']."] :".$content."\n", 3,$logfile);
+}
+
 $hash = $_REQUEST['hash'];
 $rdir = $_REQUEST['rdir'];
+$rdir = urldecode($rdir);
+logError($rdir);
 $uType = $_REQUEST['uType'];
 
 if(null == $hash || null == $rdir || null ==  $uType){
